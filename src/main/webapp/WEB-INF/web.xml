@@ -6,7 +6,7 @@
     
     <servlet>
         <servlet-name>testservlet</servlet-name>
-        <servlet-class>me.reb4ck.testservlet.HelloServlet</servlet-class>
+        <servlet-class>me.reb4ck.testservlet.ExampleServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>

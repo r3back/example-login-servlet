@@ -1,25 +1,18 @@
 package me.reb4ck.testservlet;
 
+import com.google.common.collect.ImmutableMap;
+
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
-//@WebFilter("/testservlet")
 public class AuthorizationFilter implements Filter {
-
-    private Map<String, String> passwords;
-
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        passwords = new ConcurrentHashMap<>();
-
-        passwords.put("admin", "admin");
-        passwords.put("developer", "123");
-    }
+    private final Map<String, String> passwords = ImmutableMap.<String, String>builder()
+            .put("admin", "admin")
+            .put("developer", "123")
+            .build();
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -29,7 +22,6 @@ public class AuthorizationFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
         }
     }
-
 
     private boolean validateAuth(HttpServletRequest request){
         String login = request.getParameter("login");
