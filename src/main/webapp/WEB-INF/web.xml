@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    
+    <!--SERVLET INSTANTIATION-->
     <servlet>
         <servlet-name>testservlet</servlet-name>
         <servlet-class>me.reb4ck.testservlet.ExampleServlet</servlet-class>
@@ -14,13 +14,19 @@
         <url-pattern>/testservlet</url-pattern>
     </servlet-mapping>
 
+    <!--FILTER INSTANTIATION-->
     <filter>
         <filter-name>testfilter</filter-name>
-        <filter-class>me.reb4ck.testservlet.AuthorizationFilter</filter-class>
+        <filter-class>me.reb4ck.testservlet.filter.AuthorizationFilter</filter-class>
     </filter>
-
     <filter-mapping>
         <filter-name>testfilter</filter-name>
         <servlet-name>testservlet</servlet-name>
     </filter-mapping>
+
+    <!--LISTENER INSTANTIATION-->
+    <listener>
+        <display-name>example-listner</display-name>
+        <listener-class>me.reb4ck.testservlet.listener.ExampleListener</listener-class>
+    </listener>
 </web-app>
