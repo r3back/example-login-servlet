@@ -3,11 +3,13 @@ package me.reb4ck.testservlet;
 import com.google.common.collect.ImmutableMap;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 
+@WebFilter("/testservlet")
 public final class AuthorizationFilter implements Filter {
     private final Map<String, String> passwords = ImmutableMap.<String, String>builder()
             .put("admin", "admin")
