@@ -1,4 +1,4 @@
-package me.reb4ck.testservlet;
+package me.reb4ck.testservlet.filter;
 
 import com.google.common.collect.ImmutableMap;
 
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Map;
 
 @WebFilter("/testservlet")
-public final class AuthorizationFilter implements Filter {
+public final class ExampleFilter implements Filter {
     private final Map<String, String> passwords = ImmutableMap.<String, String>builder()
             .put("admin", "admin")
             .put("developer", "123")
